@@ -1,0 +1,1 @@
+import {Suspense} from "react";import {Review} from "@/components/review";import {Loading} from "@/components/ui";export default function Page(){return <Suspense fallback={<Loading/>}><Review/></Suspense>;}
