@@ -1,26 +1,15 @@
 server:
   port: ${PORT:8080}
-  error:
-    include-message: never
+
 spring:
+  web:
+    error:
+      include-message: never
+
   config:
     import: optional:file:.env[.properties]
+
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
-    hikari:
-      maximum-pool-size: 5
-      minimum-idle: 1
-  jpa:
-    open-in-view: false
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate.jdbc.time_zone: UTC
-  flyway:
-    enabled: true
-app:
-  issuer: ${SUPABASE_URL}/auth/v1
-  jwks: ${SUPABASE_URL}/auth/v1/.well-known/jwks.json
-  cors-origins: ${CORS_ORIGINS:http://localhost:3000}
